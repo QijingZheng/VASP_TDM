@@ -133,6 +133,7 @@ module wavecar
 
       integer :: i, irec
       logical :: lopen
+      real(kind=q) :: norm
 
       inquire(file=MySys%WAVECAR, opened=lopen)
       if (.NOT. lopen) then
@@ -145,6 +146,10 @@ module wavecar
       
       ! write(*,*) irec, ket%ispin, ket%ikpts, ket%iband
       read(unit=12, rec=irec) (cwork(i), i=1,MySys%NPLWS(ket%ikpts))
+      ! NORM of the wave function 
+      norm = SQRT(SUM(CONJG(cwork) * cwork))
+      ! Normalizd the wave function
+      cwork = cwork / norm
 
     end subroutine LOADWAVE
 
