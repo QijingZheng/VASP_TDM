@@ -217,7 +217,17 @@ module TDM
        ! end if
        ! vsum = vsum + vtmp
        ! write(*,*) "kaka", G1, G2, G3, cbra(i)
-       tdipole = tdipole + CONJG(cbra(i)) * cket(i) * vtmp
+       if (i > 1) then
+         ! for gamma version, a factor of SQRT(2.0) was added to every component
+         ! G != 0
+         tdipole = tdipole + CONJG(cbra(i)) * cket(i) * vtmp / 2.
+         ! for G = -G, C(G) = C*(-G) in gamma version
+         tdipole = tdipole - CONJG(cket(i)) * cbra(i) * vtmp / 2.
+       ! else
+       !   ! the gvector of the first component vtemp is zero, no need to add this
+       !   ! one.
+       !   tdipole = tdipole + CONJG(cbra(i)) * cket(i) * vtmp
+       end if
        ovlap = ovlap + CONJG(cbra(i)) * cket(i)
     end do
     ! write(*,*) "kaka", norm, vsum
