@@ -75,7 +75,7 @@ module gvector
 
     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     ! count number of plane waves of specific k-point
-    ! non-gamma version
+    ! parallel gamma version
     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     subroutine CNT_PLW_NUM(MySys)
       use info
@@ -104,6 +104,7 @@ module gvector
                if (MySys%LPCTZ(k)<0) cycle
                if (MySys%LPCTZ(k)==0 .AND. MySys%LPCTY(j)<0) cycle
                if (MySys%LPCTZ(k)==0 .AND. MySys%LPCTY(j)==0 .AND. MySys%LPCTX(i)<0) cycle
+               
                G1=(MySys%LPCTX(i)+MySys%VKPTS(1,n))
                G2=(MySys%LPCTY(j)+MySys%VKPTS(2,n))
                G3=(MySys%LPCTZ(k)+MySys%VKPTS(3,n))
