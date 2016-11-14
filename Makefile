@@ -32,7 +32,7 @@ EXE = vasptdm
 tdm:	$(OBJ)
 	$(FC) $(FFLAGS) -o $(EXE) $(OBJ) $(SPGLIB)  
 gam: $(OBJ_PARGAMMA)
-	$(FC) $(FFLAGS) -o vasptdm_gam $(OBJ) $(SPGLIB)  
+	$(FC) $(FFLAGS) -o vasptdm_gam $(OBJ_PARGAMMA) $(SPGLIB)  
 
 clean:
 	rm -f *.mod *.a
