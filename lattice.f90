@@ -46,6 +46,7 @@ module lattice
       ! end do
 
       ! magnitude of basis vector
+      !change to do loop
       do i=1,3
         Mylatt%ANORM(i) = SQRT(SUM(Mylatt%A(:,i)*Mylatt%A(:,i)))
         Mylatt%BNORM(i) = SQRT(SUM(Mylatt%B(:,i)*Mylatt%B(:,i)))
