@@ -52,6 +52,7 @@ subroutine initialize(WAVEFILE, MySys)
   ! count number of plane waves for each k-point and compare the value with the
   ! one read from WAVECAR. Also, the index of each G-vector are produced.
   call CNT_PLW_NUM(MySys)
+  !add the number of plane waves for each k-point
 
 end subroutine
 
